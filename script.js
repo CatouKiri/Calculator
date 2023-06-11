@@ -1,4 +1,19 @@
 // create functions for the following items: add, subtract, multiply, divide
+function add(a, b) {
+    return a + b;
+}
+
+function subtract(a, b) {
+    return a - b;
+}
+
+function multiply(a, b) {
+    return a * b;
+}
+
+function divide(a, b) {
+    return a / b;
+}
 // calculation operation will consist of a Number, operator, and another Number
 // create a variable for the first Number
 // create a variable for the operator
