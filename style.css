@@ -19,18 +19,27 @@ body {
 }
 
 .screen {
-    padding: .3rem .8rem;
+    padding: .3rem .8rem .5rem .8rem;
     display: flex;
     background-color: rgb(68, 68, 68);
-    justify-content: flex-end;
     border-radius: 1.1rem;
     height: 6rem;
+    flex-direction: column;
+    align-items: end;
 }
 
 .screen-1 {
     font-family: 'Inconsolata', monospace;
     color: rgb(113, 218, 113);
-    font-size: 2rem;
+    font-size: 2.5rem;
+    height: 2.5rem;
+}
+
+.screen-2 {
+    font-family: 'Inconsolata', monospace;
+    color: rgb(113, 218, 113);
+    font-size: 3.5rem;
+    height: 3.5rem;
 }
 
 .buttons {

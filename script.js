@@ -40,7 +40,7 @@ function operate(firstNumber, operator, secondNumber) {
 }
 
 // create a function that will populate the display when you click the numbers button
-const firstScreen = document.querySelector(".screen-1");
+const secondScreen = document.querySelector(".screen-2");
 const zero = document.querySelector(".zero");
 const one = document.querySelector(".one");
 const two = document.querySelector(".two");
@@ -54,37 +54,71 @@ const nine = document.querySelector(".nine");
 
 // display the value
 one.addEventListener("click", () => {
-    firstScreen.textContent += '1';
+    secondScreen.textContent += '1';
   });
 two.addEventListener("click", () => {
-    firstScreen.textContent += '2';
+    secondScreen.textContent += '2';
   });
 three.addEventListener("click", () => {
-      firstScreen.textContent += '3';
+    secondScreen.textContent += '3';
   });
 four.addEventListener("click", () => {
-      firstScreen.textContent += '4';
+    secondScreen.textContent += '4';
   });
 five.addEventListener("click", () => {
-    firstScreen.textContent += '5';
+    secondScreen.textContent += '5';
   });
 six.addEventListener("click", () => {
-    firstScreen.textContent += '6';
+    secondScreen.textContent += '6';
 });
 seven.addEventListener("click", () => {
-    firstScreen.textContent += '7';
+    secondScreen.textContent += '7';
 });
 eight.addEventListener("click", () => {
-    firstScreen.textContent += '8';
+    secondScreen.textContent += '8';
 });
 nine.addEventListener("click", () => {
-    firstScreen.textContent += '9';
+    secondScreen.textContent += '9';
 });
 zero.addEventListener("click", () => {
-    firstScreen.textContent += '0';
+    secondScreen.textContent += '0';
 });
 
-// store the display value
 // store the first number that is input into the calculator when a user presses an operator
+const addition = document.querySelector(".addition");
+const subtraction = document.querySelector(".subtraction");
+const multiplication = document.querySelector(".multiplication");
+const division = document.querySelector(".division");
+const firstScreen = document.querySelector(".screen-1");
+
 // save the operator that was pressed
+// store the display value
+function storeValue() {
+    if(firstScreen.textContent !== ''){
+        secondNumber = secondScreen.textContent;
+    }
+    else{
+        firstNumber = secondScreen.textContent;
+        firstScreen.textContent = `${firstNumber}${operator}`;
+        secondScreen.textContent = '';
+    }
+}
+
+addition.addEventListener("click", () => {
+    operator = "+";
+    storeValue(operator);
+});
+subtraction.addEventListener("click", () => {
+    operator = "-";
+    storeValue(operator);
+});
+multiplication.addEventListener("click", () => {
+    operator = "*";
+    storeValue(operator);
+});
+division.addEventListener("click", () => {
+    operator = "/";
+    storeValue(operator);
+});
+
 // operate when user pressed the '=' key or when user pressed another operator
