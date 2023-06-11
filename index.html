@@ -18,11 +18,11 @@
             <div class="screen-2"></div>
         </div>
         <div class="buttons">
-            <button>AC</button>
-            <button>C</button>
+            <button onclick="allClear()">AC</button>
+            <button onclick="clr()">C</button>
             <button>%</button>
             <button>÷</button>
-            <button onclick="addToScreen('7')">7</button>
+            <button onclick="addToScreen(7)">7</button>
             <button onclick="addToScreen(8)">8</button>
             <button onclick="addToScreen(9)">9</button>
             <button>+</button>
@@ -40,11 +40,4 @@
         </div>
     </div>
 </body>
-
-<script>
-    const screen = document.querySelector('.screen-1')
-    function addToScreen(a) {
-        screen.append(a);
-    }
-</script>
 </html>
