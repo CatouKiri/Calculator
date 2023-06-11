@@ -19,7 +19,7 @@ body {
 }
 
 .screen {
-    padding: .1rem 1rem;
+    padding: .3rem .8rem;
     display: flex;
     background-color: rgb(68, 68, 68);
     justify-content: flex-end;
@@ -27,7 +27,7 @@ body {
     height: 6rem;
     font-size: 2rem;
     color: rgb(113, 218, 113);
-    font-family: 'Monomaniac One', sans-serif;
+    font-family: 'Inconsolata', monospace;
 }
 
 .buttons {
