@@ -1,4 +1,7 @@
-// store the numbers entered by the users
+const screen = document.querySelector('.screen')
+// 1st number
+// 2nd number
+// operator
 // add function
 function add(a, b) {
     return a + b;
@@ -20,4 +23,5 @@ function divide(a, b) {
 }
 
 // operate function
+function
 

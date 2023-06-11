@@ -9,32 +9,42 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Righteous&display=swap" rel="stylesheet">
-
+    <script src="script.js"></script>
 </head>
 <body>
     <div class="calculator">
-        <div class="screen">1,000,000.00</div>
+        <div class="screen">
+            <div class="screen-1"></div>
+            <div class="screen-2"></div>
+        </div>
         <div class="buttons">
             <button>AC</button>
             <button>C</button>
             <button>%</button>
             <button>÷</button>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
+            <button onclick="addToScreen('7')">7</button>
+            <button onclick="addToScreen(8)">8</button>
+            <button onclick="addToScreen(9)">9</button>
             <button>+</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
+            <button onclick="addToScreen(4)">4</button>
+            <button onclick="addToScreen(5)">5</button>
+            <button onclick="addToScreen(6)">6</button>
             <button>-</button>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
+            <button onclick="addToScreen(1)">1</button>
+            <button onclick="addToScreen(2)">2</button>
+            <button onclick="addToScreen(3)">3</button>
             <button>×</button>
-            <button>0</button>
+            <button onclick="addToScreen(0)">0</button>
             <button>.</button>
             <button class="last-item">=</button>
         </div>
     </div>
 </body>
+
+<script>
+    const screen = document.querySelector('.screen-1')
+    function addToScreen(a) {
+        screen.append(a);
+    }
+</script>
 </html>
