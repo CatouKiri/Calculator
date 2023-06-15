@@ -24,18 +24,32 @@ let operator;
 let secondNumber;
 
 // create a function operate that takes the operator, first Number, and second number and call a function from the top
-function operate(firstNumber, operator, secondNumber) {
-    if(operator === "+") {
-        add(firstNumber, secondNumber);
+function operate() {
+    if(firstScreen.textContent.slice(-1) === "="){
+    }
+    else if(operator === "+") {
+        storeSecondNumber();
+        secondScreen.textContent = '';
+        firstScreen.textContent = `${firstNumber}${operator}${secondNumber}=`;
+        secondScreen.textContent = add(firstNumber, secondNumber);
     }
     else if(operator === "-") {
-        subtract(firstNumber, secondNumber);
+        storeSecondNumber();
+        secondScreen.textContent = '';
+        firstScreen.textContent = `${firstNumber}${operator}${secondNumber}=`;
+        secondScreen.textContent = subtract(firstNumber, secondNumber);
     }
     else if(operator === "×") {
-        multiply(firstNumber, secondNumber);
+        storeSecondNumber();
+        secondScreen.textContent = '';
+        firstScreen.textContent = `${firstNumber}${operator}${secondNumber}=`;
+        secondScreen.textContent = multiply(firstNumber, secondNumber);
     }
     else if(operator === "÷") {
-        divide(firstNumber, secondNumber);
+        storeSecondNumber();
+        secondScreen.textContent = '';
+        firstScreen.textContent = `${firstNumber}${operator}${secondNumber}=`;
+        secondScreen.textContent = divide(firstNumber, secondNumber);
     }
 }
 
@@ -114,11 +128,41 @@ addition.addEventListener("click", () => {
         storeOperator(operator);
         displayToScreen();
     }
+    else if(firstScreen.textContent.slice(-1) === "="){
+        storeFirstNumber();
+        storeOperator(operator);
+        displayToScreen();
+    }
+    else if(firstScreen.textContent.slice(-1) === operator) {
+        operate();
+        storeFirstNumber();
+        firstScreen.textContent = `${secondScreen.textContent}${operator}`;
+        secondScreen.textContent = '';
+    }
+    else {
+        storeOperator(operator);
+        displayToScreen();
+    }
 });
 subtraction.addEventListener("click", () => {
     operator = "-";
     if(firstScreen.textContent === '') {
         storeFirstNumber();
+        storeOperator(operator);
+        displayToScreen();
+    }
+    else if(firstScreen.textContent.slice(-1) === "="){
+        storeFirstNumber();
+        storeOperator(operator);
+        displayToScreen();
+    }
+    else if(firstScreen.textContent.slice(-1) === operator) {
+        operate();
+        storeFirstNumber();
+        firstScreen.textContent = `${secondScreen.textContent}${operator}`;
+        secondScreen.textContent = '';
+    }
+    else {
         storeOperator(operator);
         displayToScreen();
     }
@@ -130,11 +174,41 @@ multiplication.addEventListener("click", () => {
         storeOperator(operator);
         displayToScreen();
     }
+    else if(firstScreen.textContent.slice(-1) === "="){
+        storeFirstNumber();
+        storeOperator(operator);
+        displayToScreen();
+    }
+    else if(firstScreen.textContent.slice(-1) === operator) {
+        operate();
+        storeFirstNumber();
+        firstScreen.textContent = `${secondScreen.textContent}${operator}`;
+        secondScreen.textContent = '';
+    }
+    else {
+        storeOperator(operator);
+        displayToScreen();
+    }
 });
 division.addEventListener("click", () => {
     operator = "÷";
     if(firstScreen.textContent === '') {
         storeFirstNumber();
+        storeOperator(operator);
+        displayToScreen();
+    }
+    else if(firstScreen.textContent.slice(-1) === "="){
+        storeFirstNumber();
+        storeOperator(operator);
+        displayToScreen();
+    }
+    else if(firstScreen.textContent.slice(-1) === operator) {
+        operate();
+        storeFirstNumber();
+        firstScreen.textContent = `${secondScreen.textContent}${operator}`;
+        secondScreen.textContent = '';
+    }
+    else {
         storeOperator(operator);
         displayToScreen();
     }
@@ -144,32 +218,31 @@ division.addEventListener("click", () => {
 // operate when user pressed the '=' key or when user pressed another operator
 const equal = document.querySelector(".equal");
 equal.addEventListener("click", () => {
-    if(firstScreen.textContent.slice(-1) === "="){
-    }
-    else if(operator === "+") {
-        storeSecondNumber();
-        secondScreen.textContent = '';
-        firstScreen.textContent = `${firstNumber}${operator}${secondNumber}=`;
-        secondScreen.textContent = add(firstNumber, secondNumber);
-    }
-    else if(operator === "-") {
-        storeSecondNumber();
-        secondScreen.textContent = '';
-        firstScreen.textContent = `${firstNumber}${operator}${secondNumber}=`;
-        secondScreen.textContent = subtract(firstNumber, secondNumber);
-    }
-    else if(operator === "×") {
-        storeSecondNumber();
-        secondScreen.textContent = '';
-        firstScreen.textContent = `${firstNumber}${operator}${secondNumber}=`;
-        secondScreen.textContent = multiply(firstNumber, secondNumber);
-    }
-    else if(operator === "÷") {
-        storeSecondNumber();
-        secondScreen.textContent = '';
-        firstScreen.textContent = `${firstNumber}${operator}${secondNumber}=`;
-        secondScreen.textContent = divide(firstNumber, secondNumber);
-    }
-    // console.log(operate(firstNumber, operator, secondNumber));
+    operate();
+})
 
+// calculate floating numbers
+const dot = document.querySelector(".dot");
+
+dot.addEventListener("click", () => {
+    if(secondScreen.textContent.includes('.') != true){
+        if(secondScreen.textContent === ''){
+            secondScreen.textContent += '0.';
+        }
+        else {
+            secondScreen.textContent += '.';
+        }
+    }
+})
+
+// remove buttons
+const remove = document.querySelector(".remove");
+const removeAll = document.querySelector(".removeAll");
+
+remove.addEventListener("click", () => {
+    secondScreen.textContent = secondScreen.textContent.slice(0, -1);
+})
+removeAll.addEventListener("click", () => {
+    secondScreen.textContent = '';
+    firstScreen.textContent = '';
 })

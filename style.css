@@ -12,6 +12,7 @@ body {
 }
 
 .calculator {
+    width: 17.5rem;
     padding: 1.2rem;
     margin-top: 5rem;
     background-color: rgb(37, 37, 37);
@@ -33,6 +34,9 @@ body {
     color: rgb(113, 218, 113);
     font-size: 2.5rem;
     height: 2.5rem;
+    overflow: hidden;
+    width:  15.625rem;
+    text-align: right;
 }
 
 .screen-2 {
@@ -40,6 +44,9 @@ body {
     color: rgb(113, 218, 113);
     font-size: 3.5rem;
     height: 3.5rem;
+    overflow: hidden;
+    width:  15.625rem;
+    direction: rtl;
 }
 
 .buttons {
