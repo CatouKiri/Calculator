@@ -19,7 +19,7 @@ function divide(a, b) {
 // create a variable for the first Number
 let firstNumber;
 // create a variable for the operator
-let operator;
+let operator ;
 // create a variable for the second Number
 let secondNumber;
 
@@ -139,6 +139,15 @@ addition.addEventListener("click", () => {
         firstScreen.textContent = `${secondScreen.textContent}${operator}`;
         secondScreen.textContent = '';
     }
+    else if(firstScreen.textContent.slice(-1) != Number) {
+        console.log(firstScreen.textContent.slice(-1));
+        operator = firstScreen.textContent.slice(-1);
+        operate();
+        storeFirstNumber();
+        firstScreen.textContent = `${secondScreen.textContent}+`;
+        secondScreen.textContent = '';
+        operator = "+";
+    }
     else {
         storeOperator(operator);
         displayToScreen();
@@ -158,9 +167,16 @@ subtraction.addEventListener("click", () => {
     }
     else if(firstScreen.textContent.slice(-1) === operator) {
         operate();
-        storeFirstNumber();
         firstScreen.textContent = `${secondScreen.textContent}${operator}`;
         secondScreen.textContent = '';
+    }
+    else if(firstScreen.textContent.slice(-1) != Number) {
+        operator = firstScreen.textContent.slice(-1);
+        operate();
+        storeFirstNumber();
+        firstScreen.textContent = `${secondScreen.textContent}-`;
+        secondScreen.textContent = '';
+        operator = "-";
     }
     else {
         storeOperator(operator);
@@ -183,6 +199,14 @@ multiplication.addEventListener("click", () => {
         operate();
         storeFirstNumber();
         firstScreen.textContent = `${secondScreen.textContent}${operator}`;
+        secondScreen.textContent = '';
+    }
+    else if(firstScreen.textContent.slice(-1) != Number) {
+        operator = firstScreen.textContent.slice(-1);
+        operate();
+        storeFirstNumber();
+        firstScreen.textContent = `${secondScreen.textContent}×`;
+        operator = "×";
         secondScreen.textContent = '';
     }
     else {
@@ -208,16 +232,24 @@ division.addEventListener("click", () => {
         firstScreen.textContent = `${secondScreen.textContent}${operator}`;
         secondScreen.textContent = '';
     }
+    else if(firstScreen.textContent.slice(-1) != Number) {
+        operator = firstScreen.textContent.slice(-1);
+        operate();
+        storeFirstNumber();
+        firstScreen.textContent = `${secondScreen.textContent}÷`;
+        operator = "÷";
+        secondScreen.textContent = '';
+    }
     else {
         storeOperator(operator);
         displayToScreen();
     }
 });
 
-
 // operate when user pressed the '=' key or when user pressed another operator
 const equal = document.querySelector(".equal");
 equal.addEventListener("click", () => {
+    operator =
     operate();
 })
 

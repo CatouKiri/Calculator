@@ -46,7 +46,7 @@ body {
     height: 3.5rem;
     overflow: hidden;
     width:  15.625rem;
-    direction: rtl;
+    text-align: right;
 }
 
 .buttons {
